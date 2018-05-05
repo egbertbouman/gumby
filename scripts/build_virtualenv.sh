@@ -40,7 +40,7 @@
 #
 
 # Increase this every time the file gets modified.
-SCRIPT_VERSION=24
+SCRIPT_VERSION=25
 
 # Code:
 set -e
@@ -519,6 +519,7 @@ Jinja2 # Used for systemtap report generation scripts from Cor-Paul
 configobj
 cryptography
 cython
+datrie
 dnspython
 ecdsa
 gmpy==1.16

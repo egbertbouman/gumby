@@ -281,3 +281,20 @@ class MarketCommunityLauncher(IPv8CommunityLauncher):
 
     def get_my_peer(self, ipv8, session):
         return Peer(session.tradechain_keypair)
+
+
+class DHTCommunityLauncher(IPv8CommunityLauncher):
+
+    def should_launch(self, session):
+        return session.config.get_dht_community_enabled()
+
+    def get_overlay_class(self):
+        from Tribler.community.dht.community import DHTCommunity
+        return DHTCommunity
+
+    def get_my_peer(self, ipv8, session):
+        return Peer(session.tradechain_keypair)
+
+    def get_kwargs(self, session):
+        return {}
+
