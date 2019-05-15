@@ -89,8 +89,8 @@ class BaseIPv8Module(ExperimentModule):
 
         # We manually update the IPv8 bootstrap servers since IPv8 does not use the bootstraptribler.txt file.
         from Tribler.pyipv8.ipv8 import community
-        community._DEFAULT_ADDRESSES = []
-        community._DNS_ADDRESSES = []
+        del community._DEFAULT_ADDRESSES[:]
+        del community._DNS_ADDRESSES[:]
         with open(bootstrap_file, 'r') as bfile:
             for line in bfile.readlines():
                 parts = line.split(" ")
