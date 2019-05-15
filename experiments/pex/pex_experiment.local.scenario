@@ -1,0 +1,14 @@
+&module gumby.modules.tribler_module.TriblerModule
+&module experiments.ipv8.discovery_module.DiscoveryModule
+&module experiments.pex.pex_module.PexModule
+@0:0 isolate_ipv8_overlay TriblerTunnelCommunity
+@0:1 enable_ipv8_statistics
+@0:2 start_session
+@0:2 annotate start-experiment
+@0:10 start_pex 1000 0.20 {1}
+@0:10 start_pex 1000 0.20 {2}
+@0:250 stop_pex 1000 0.03 {1}
+@0:250 stop_pex 1000 0.03 {2}
+@0:290 stop_session
+@0:295 write_overlay_statistics
+@0:300 stop
