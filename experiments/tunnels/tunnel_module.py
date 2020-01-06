@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # bartercast_client.py ---
 #
 # Filename: tunnel_module.py
@@ -39,9 +39,9 @@
 import time
 from binascii import unhexlify
 
-from Tribler.Core.Utilities.unicode import hexlify
-from Tribler.Core.simpledefs import dlstatus_strings, DOWNLOAD, UPLOAD
-from Tribler.community.triblertunnel.community import TriblerTunnelCommunity
+from tribler_core.utilities.unicode import hexlify
+from tribler_common.simpledefs import dlstatus_strings, DOWNLOAD, UPLOAD
+from tribler_core.modules.tunnel.community.triblertunnel_community import TriblerTunnelCommunity
 
 from ipv8.messaging.anonymization.community import TunnelSettings
 
@@ -99,7 +99,7 @@ class TunnelModule(IPv8OverlayExperimentModule):
                                                peer["utotal"], peer["extended_version"])
                     for pid, hashes in peer_aggregate.items():
                         for infohash, balance in hashes.items():
-                            self.session.lm.payout_manager.update_peer(pid, infohash, balance)
+                            self.session.payout_manager.update_peer(pid, infohash, balance)
 
                 status_dict = {
                     "time": time.time() - self.experiment.scenario_runner.exp_start_time,

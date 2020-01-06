@@ -5,7 +5,7 @@ from gumby.experiment import experiment_callback
 
 from gumby.modules.experiment_module import static_module, ExperimentModule
 
-import Tribler.Core.Libtorrent.LibtorrentMgr as lt
+from tribler_core.modules.libtorrent.libtorrent_mgr import LibtorrentMgr as lt
 
 
 class EverEmptySet(frozenset):
@@ -57,7 +57,7 @@ class DHTModule(ExperimentModule):
 
     @experiment_callback
     def print_dht_table(self):
-        for ltsession in self.lm.ltmgr.ltsessions.values():
+        for ltsession in self.ltmgr.ltsessions.values():
             if hasattr(ltsession, 'post_dht_stats'):
                 ltsession.post_dht_stats()
 
